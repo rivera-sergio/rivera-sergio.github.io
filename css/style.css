@@ -1,0 +1,484 @@
+/* ==========================================================================
+   Sergio A. Rivera — personal/research site
+   Shared design system
+   ========================================================================== */
+
+:root {
+  --color-bg: #faf9f6;
+  --color-surface: #ffffff;
+  --color-text: #1f2430;
+  --color-text-muted: #5b6270;
+  --color-primary: #1c3d5a;
+  --color-primary-dark: #11263a;
+  --color-accent: #a13d3d;
+  --color-border: #e3e0d8;
+  --max-width: 1080px;
+  --radius: 10px;
+  --shadow: 0 1px 3px rgba(20, 22, 30, 0.06), 0 6px 20px rgba(20, 22, 30, 0.05);
+  font-size: 17px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: "Georgia", "Iowan Old Style", "Palatino Linotype", serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  color: var(--color-primary-dark);
+  line-height: 1.25;
+  margin-top: 0;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* -------------------- Nav -------------------- */
+.site-nav {
+  background: var(--color-primary-dark);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.site-nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+.site-nav .brand {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+}
+.site-nav .brand:hover { text-decoration: none; opacity: 0.9; }
+.site-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+.site-nav a.nav-link {
+  color: #dfe6ee;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.92rem;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+.site-nav a.nav-link:hover {
+  background: rgba(255,255,255,0.08);
+  text-decoration: none;
+}
+.site-nav a.nav-link.active {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+/* -------------------- Hero / banner -------------------- */
+.hero-banner {
+  position: relative;
+  height: 260px;
+  background-size: cover;
+  background-position: center 60%;
+}
+.hero-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(17,38,58,0.35) 0%, rgba(17,38,58,0.75) 100%);
+}
+
+.profile-block {
+  max-width: var(--max-width);
+  margin: -90px auto 0;
+  padding: 0 24px 30px;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 28px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+.profile-photo {
+  width: 168px;
+  height: 168px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid var(--color-surface);
+  box-shadow: var(--shadow);
+  background: var(--color-surface);
+  flex-shrink: 0;
+}
+.profile-heading {
+  padding-bottom: 8px;
+}
+.profile-heading h1 {
+  font-size: 2rem;
+  margin-bottom: 4px;
+}
+.profile-heading .tagline {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  color: var(--color-text-muted);
+  font-size: 1.02rem;
+}
+
+/* -------------------- Page header (non-home pages) -------------------- */
+.page-header {
+  background: var(--color-primary);
+  padding: 46px 0 34px;
+}
+.page-header h1 {
+  color: #fff;
+  margin-bottom: 6px;
+}
+.page-header p {
+  color: #dfe6ee;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  max-width: 640px;
+  margin: 0;
+}
+
+/* -------------------- Sections -------------------- */
+main { padding-bottom: 70px; }
+section.block {
+  padding: 44px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+section.block:last-child { border-bottom: none; }
+section.block h2 {
+  font-size: 1.5rem;
+  margin-bottom: 22px;
+}
+
+.lead {
+  font-size: 1.08rem;
+  max-width: 760px;
+}
+
+/* -------------------- Buttons -------------------- */
+.btn {
+  display: inline-block;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 6px;
+  background: var(--color-accent);
+  color: #fff !important;
+  text-decoration: none !important;
+}
+.btn:hover { opacity: 0.9; }
+.btn.btn-outline {
+  background: transparent;
+  border: 1.5px solid #fff;
+  color: #fff !important;
+}
+.btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
+
+/* -------------------- Contact / links row -------------------- */
+.link-row {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.95rem;
+  margin-top: 14px;
+  color: var(--color-text-muted);
+}
+.link-row a { font-weight: 600; }
+
+/* -------------------- Paper card: image beside abstract -------------------- */
+.paper-card {
+  display: flex;
+  gap: 26px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 22px;
+  margin-bottom: 26px;
+  align-items: stretch;
+}
+.paper-card .paper-figure {
+  flex: 0 0 240px;
+}
+.paper-card .paper-figure img {
+  width: 100%;
+  height: 100%;
+  min-height: 160px;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
+.paper-card .paper-body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.paper-card .paper-tag {
+  display: inline-block;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 8px;
+}
+.paper-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+}
+.paper-card .paper-venue {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-bottom: 10px;
+}
+.paper-card .paper-abstract {
+  font-size: 0.98rem;
+  color: var(--color-text);
+}
+.paper-card .paper-links {
+  margin-top: 12px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.9rem;
+  display: flex;
+  gap: 16px;
+}
+/* -------------------- "Loading" states for content not yet available -------------------- */
+.pending-link {
+  color: var(--color-text-muted);
+  cursor: progress;
+}
+.pending-link::after {
+  content: " · loading…";
+  font-size: 0.85em;
+  opacity: 0.75;
+  animation: pulse 1.6s ease-in-out infinite;
+}
+.btn.pending-link {
+  background: #b9bec6;
+  color: #fff !important;
+}
+.btn.btn-outline.pending-link {
+  background: transparent;
+  border-color: #b9bec6;
+}
+
+.loading-card {
+  text-align: center;
+  background: var(--color-surface);
+  border: 1.5px dashed var(--color-border);
+  border-radius: var(--radius);
+  padding: 34px 24px;
+  color: var(--color-text-muted);
+}
+.loading-card svg {
+  width: 56px;
+  height: 56px;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+.loading-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 4px;
+}
+.loading-card .hand {
+  font-style: italic;
+  margin: 0 0 16px;
+  font-size: 0.98rem;
+}
+.loading-card .pct {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  margin: 10px 0 0;
+}
+.bar {
+  width: min(260px, 70%);
+  height: 8px;
+  margin: 0 auto;
+  border-radius: 999px;
+  background: var(--color-border);
+  overflow: hidden;
+  position: relative;
+}
+.bar span {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40%;
+  border-radius: 999px;
+  background: var(--color-accent);
+  animation: slide 1.8s ease-in-out infinite;
+}
+.loading-inline {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  background: var(--color-bg);
+  border-radius: 8px;
+  padding: 16px 18px;
+}
+.loading-inline .bar {
+  margin: 10px 0 0;
+  width: 160px;
+}
+.lines path { animation: pulse 2.2s ease-in-out infinite; }
+.lines path:nth-child(2) { animation-delay: 0.3s; }
+.lines path:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes slide {
+  0%   { left: -40%; }
+  100% { left: 100%; }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.35; }
+  50%      { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bar span, .pending-link::after, .lines path { animation: none; }
+  .bar span { left: 0; width: 45%; }
+}
+
+@media (max-width: 640px) {
+  .paper-card { flex-direction: column; }
+  .paper-card .paper-figure { flex: none; width: 100%; }
+  .paper-card .paper-figure img { min-height: 180px; }
+}
+
+/* -------------------- Experience / timeline items -------------------- */
+.timeline-item {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.timeline-item:last-child { border-bottom: none; }
+.timeline-item .role-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+.timeline-item .role {
+  font-weight: 700;
+  color: var(--color-primary-dark);
+}
+.timeline-item .org {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+.timeline-item .dates {
+  color: var(--color-accent);
+  font-weight: 600;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+.timeline-item ul {
+  margin: 10px 0 0;
+  padding-left: 20px;
+}
+.timeline-item li { margin-bottom: 6px; }
+
+/* -------------------- Simple two-col grid -------------------- */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+@media (max-width: 700px) {
+  .grid-2 { grid-template-columns: 1fr; }
+}
+
+/* -------------------- Distinctions list -------------------- */
+.distinction {
+  display: flex;
+  gap: 16px;
+  padding: 10px 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+.distinction .year {
+  flex: 0 0 100px;
+  color: var(--color-accent);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.distinction .what strong { color: var(--color-primary-dark); }
+.distinction .what span.org { color: var(--color-text-muted); }
+
+/* -------------------- Reference cards -------------------- */
+.reference-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.92rem;
+}
+.reference-card strong { color: var(--color-primary-dark); display: block; margin-bottom: 2px; }
+.reference-card span { color: var(--color-text-muted); display: block; }
+
+/* -------------------- Skills table -------------------- */
+.skills-table {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.96rem;
+}
+.skills-table .row {
+  display: flex;
+  gap: 20px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.skills-table .row:last-child { border-bottom: none; }
+.skills-table .label {
+  flex: 0 0 140px;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+}
+
+/* -------------------- Footer -------------------- */
+footer.site-footer {
+  background: var(--color-primary-dark);
+  color: #cfd8e2;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  padding: 30px 0;
+  font-size: 0.88rem;
+}
+footer.site-footer a { color: #fff; }
+footer.site-footer .container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+@media (max-width: 640px) {
+  .profile-block { margin-top: -60px; }
+  .profile-photo { width: 120px; height: 120px; }
+  .hero-banner { height: 200px; }
+}

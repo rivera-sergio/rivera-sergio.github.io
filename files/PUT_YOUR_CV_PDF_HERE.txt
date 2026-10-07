@@ -1,0 +1,8 @@
+Export your CV .tex file to PDF (e.g. via Overleaf: Menu > Download PDF,
+or `pdflatex` locally if you have resume_cardenalion.cls installed),
+then upload it here named exactly:
+
+    Sergio_Rivera_CV.pdf
+
+That filename matches the download buttons on index.html and cv.html.
+Delete this text file once the real PDF is in place.
